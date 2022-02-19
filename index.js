@@ -7,7 +7,7 @@ function listToTodoForm() {
 
     const todo = {
       title: titleEl.value,
-      completed: false
+      completed: !false
     }
 
     console.log(todo)
@@ -27,8 +27,6 @@ function listToTodoForm() {
         },
         body: JSON.stringify(todo)
       }
-
-  
 
     // (4) TODO: Call the function to add the todo (make the POST request to the server)
     createTodo(todo)
@@ -53,8 +51,8 @@ function createTodo(todo) {
   // (6) TODO: if the todo is completed, make it grey
   // 
 
-if (todo.complete) {
-    liEl.style.color = 'grey'
+if (todo.completed) {
+  liEl.setAttribute('style', 'color: grey;text-decoration: line-through')
 }
   const ulEl = document.querySelector('#todo-list')
 
