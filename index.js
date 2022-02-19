@@ -7,15 +7,15 @@ function listToTodoForm() {
 
     const todo = {
       title: titleEl.value,
-      completed: !false
+      completed: false
     }
 
     console.log(todo)
 
     // (2) TODO: Convert todo to a JSON string using JSON.stringify()
 
+  
     JSON.stringify(todo)
-    
 
     // (3) TODO: Create the fetch options to do a POST request with the
     // above string as the body
@@ -23,14 +23,16 @@ function listToTodoForm() {
     const options = {
         method: 'POST', 
         headers : {
-          'Content-Type' : 'application/json'
+          'Content-type' : 'application/json'
         },
         body: JSON.stringify(todo)
       }
 
     // (4) TODO: Call the function to add the todo (make the POST request to the server)
-    createTodo(todo)
-
+    fetch('http://localhost:3000/todos', options)
+    .then(function(response) {
+        return response.json()
+    })
 
     // (5) TODO: In the call back function from fetch, call createTodo with the new Todo
     
@@ -52,7 +54,7 @@ function createTodo(todo) {
   // 
 
 if (todo.completed) {
-  liEl.setAttribute('style', 'color: grey;text-decoration: line-through')
+  liEl.setAttribute('style', 'color: grey; text-decoration: line-through')
 }
   const ulEl = document.querySelector('#todo-list')
 
@@ -75,12 +77,11 @@ function init() {
     fetch("http://localhost:3000/todos")
     .then(function(response) {
       return response.json()
-    }).then(function(json) {
+    }).then(function(todos) {
       //This is where we do stuff with the response! In this case 
       //we just log it out.
-      console.log("todos created", json)
-    })
-    createTodo(todos)
+      createTodos(todos)
+    })  
 }
 
 init()
