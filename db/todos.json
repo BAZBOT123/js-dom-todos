@@ -16,19 +16,14 @@
       "completed": true
     },
     {
-      "title": "",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "title": "hello",
-      "completed": false,
-      "id": 5
-    },
-    {
       "title": "Take out the cat",
       "completed": false,
       "id": 6
+    },
+    {
+      "title": "Take out the doggo",
+      "completed": false,
+      "id": 10
     }
   ]
 }

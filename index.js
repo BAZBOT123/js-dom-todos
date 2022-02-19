@@ -35,7 +35,9 @@ function listToTodoForm() {
     })
 
     // (5) TODO: In the call back function from fetch, call createTodo with the new Todo
-    
+    .then(function(todo) {
+      createTodo(todo)
+  })
   })
 }
 
